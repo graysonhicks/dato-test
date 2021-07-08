@@ -1,4 +1,6 @@
-require('dotenv').config()
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 module.exports = {
   siteMetadata: {
@@ -8,6 +10,9 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-transformer-remark`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-datocms`,
       options: {
@@ -15,4 +20,4 @@ module.exports = {
       },
     },
   ],
-}
+};

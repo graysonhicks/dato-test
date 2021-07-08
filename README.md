@@ -12,6 +12,11 @@ You can [sign up for a free account](https://dashboard.datocms.com/signup) and t
 
 [![Deploy with DatoCMS](https://dashboard.datocms.com/deploy/button.svg)](https://dashboard.datocms.com/projects/new-from-template/static-website/gatsby-portfolio)
 
+### Vendors
+
+- DatoCMS: Includes setup for `HomePage`, `BlogPage`, `BlogPost` models
+- Gatsby Cloud: Includes build scripts & setup for a simple contact form function/endpoint
+
 ## Repo usage
 
 First, install the dependencies of this project:
@@ -20,10 +25,10 @@ First, install the dependencies of this project:
 npm install
 ```
 
-Add an `.env` file containing the read-only API token of your DatoCMS site:
+Add two `.env` files containing the read-only API token of your DatoCMS site:
 
 ```
-echo 'DATO_API_TOKEN=abc123' >> .env
+echo -e 'DATO_API_TOKEN=abc123\nDATOCMS_PROJECT_ID=12345' | tee .env.production .env.development
 ```
 
 Then, to run this website in development mode (with live-reload):
@@ -50,3 +55,7 @@ This websites uses:
 
 - [GatsbyJS](https://github.com/gatsbyjs/gatsby) as website generator;
 - [gatsby-source-datocms](https://github.com/datocms/gatsby-source-datocms) to integrate the website with DatoCMS.
+
+### Credits
+
+- [Inter Font](https://rsms.me/inter/) by Rasmus Andersson & [typeface-inter package](https://github.com/ajmalafif/typeface-inter) by Ajmal Afif

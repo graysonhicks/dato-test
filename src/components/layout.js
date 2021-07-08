@@ -31,6 +31,7 @@ const TemplateWrapper = ({ children }) => {
                 html
               }
             }
+
             copyright
           }
           allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
@@ -43,7 +44,7 @@ const TemplateWrapper = ({ children }) => {
           }
         }
       `}
-      render={data => (
+      render={(data) => (
         <div className={`container ${showMenu ? "is-open" : ""}`}>
           <HelmetDatoCms
             favicon={data.datoCmsSite.faviconMetaTags}
@@ -58,7 +59,7 @@ const TemplateWrapper = ({ children }) => {
                 className="sidebar__intro"
                 dangerouslySetInnerHTML={{
                   __html:
-                    data.datoCmsHome.introTextNode.childMarkdownRemark.html
+                    data.datoCmsHome.introTextNode.childMarkdownRemark.html,
                 }}
               />
               <ul className="sidebar__menu">
@@ -67,6 +68,9 @@ const TemplateWrapper = ({ children }) => {
                 </li>
                 <li>
                   <Link to="/about">About</Link>
+                </li>
+                <li>
+                  <Link to="/gatsby-functions">Gatsby Functions</Link>
                 </li>
               </ul>
               <p className="sidebar__social">
@@ -91,7 +95,8 @@ const TemplateWrapper = ({ children }) => {
               <div className="mobile-header">
                 <div className="mobile-header__menu">
                   <button
-                    onClick={e => {
+                    aria-label="Open menu"
+                    onClick={(e) => {
                       e.preventDefault();
                       setShowMenu(!showMenu);
                     }}
@@ -111,7 +116,7 @@ const TemplateWrapper = ({ children }) => {
 };
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.object,
 };
 
 export default TemplateWrapper;
